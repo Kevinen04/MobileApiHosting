@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Orders</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let order of orders">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-avatar>
+              <ion-img [src]="order.restaurantLogo"></ion-img>
+            </ion-avatar>
+          </ion-col>
+          <ion-col>
+            <ion-label>{{ order.restaurantName }}</ion-label>
+            <ion-label class="ion-margin-top">{{ order.dateTime | date:'dd/MM/yy hh:mm' }}</ion-label>
+          </ion-col>
+          <ion-col class="ion-text-end">
+            <ion-label>Rs. {{ order.totalPrice }}</ion-label>
+            <div *ngIf="order.isCurrentUserRestaurantStaff">
+              <ion-button [disabled]="order.status === '1'" (click)="updateStatus(order.id, '1')">
+                <ion-icon name="happy-outline" color="warning"></ion-icon>
+              </ion-button>
+              <ion-button [disabled]="order.status === '2'" (click)="updateStatus(order.id, '2')">
+                <ion-icon name="checkmark-done-circle-outline" color="success"></ion-icon>
+              </ion-button>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      
+    </ion-item>
+  </ion-list>
+</ion-content>

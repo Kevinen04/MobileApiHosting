@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+    <style>
+        .delete-icon {
+    color: red;
+    cursor: pointer;
+    margin-left: 20px;
+    font-size:50px;
+    }
+    </style>
+    <title>Task Planner</title>
+</head>
+
+<body>
+    <ion-header>
+        <ion-toolbar>
+            <ion-title> Task Planner </ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <ion-card>
+                        <ion-card-header>
+                            <ion-card-title>Add a new task</ion-card-title>
+                        </ion-card-header>
+            
+                        <ion-card-content>
+                            <ion-item>
+                                <ion-label position="floating">Name your task</ion-label>
+                                <ion-input placeholder="" id="input-name"></ion-input>
+                            </ion-item>
+                            <ion-item>
+                                <ion-label position="stacked">Due on?</ion-label>
+                                <ion-datetime-button class="ion-margin-top" datetime="datetime"></ion-datetime-button>
+                                <ion-modal>
+                                    <ion-datetime id="datetime"></ion-datetime>
+                                </ion-modal>
+                            </ion-item>
+                            <ion-item>
+                                <ion-label position="floating">Priority</ion-label>
+                                <ion-input type="number" placeholder="" id="input-priority"></ion-input>
+                            </ion-item>
+                            <div class="ion-text-end ion-margin-vertical">
+                                <ion-button fill="outline" color="danger" id="button-clear">
+                                    <ion-icon slot="start" name="close-outline"></ion-icon>
+                                    Clear
+                                </ion-button>
+                                <ion-button id="button-add">
+                                    <ion-icon slot="start" name="add-outline"></ion-icon>
+                                    Add
+                                </ion-button>
+                            </div>
+                        </ion-card-content>
+                    </ion-card>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-card>
+                        <ion-card-header>
+                            <ion-title>My tasks</ion-title>
+                        </ion-card-header>
+                        <ion-card-content>
+                            <ion-list id="list-tasks"></ion-list>
+                        </ion-card-content>
+                    </ion-card>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-content>
+    <script src="app.js"></script>
+</body>
+</html>

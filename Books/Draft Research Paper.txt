@@ -1,0 +1,55 @@
+--> Introduction
+
+Attendance marking plays a vital role in educational institutions. It shows how punctual a student is and chronic absences increade the risk of school failure and early dropouts. Manual attendance marking has been proven inefficient due to the mishandling or error commited in those data. Class attendance has a significant effect on the academic performance of the students. Hence, most institutions have requirements that students should have a percentage of attendance to be eligible for examination. 
+
+--> Problem
+
+The most common methods of taking the attendance was a pen and paper. The attendace system consist of calling out names of the students or by passing the attendance sheet around the class where the student will sign to mark his presence. But, this process raise the risk of human error, faking data and mishandling such data. Within institutions, the dependability of such systems is a recurrent problem when classes have huge populations. The main drawback of traditional systems is the possibility of a student marking a false attendance record, Students commonly counterfeit their friends' signatures which promotes unethical activity.
+
+--> Aim
+
+To solve this problem, many mobile application with different kind of technologies have been proposed and introduced. Smartphone have been used for student attendance using technologies such as face recognition, fingerprint-based attendance, Bluetooth based attendance and so on. But fraud still can be committed as the latter may not in the specified classroom and still records his presence. The usage of the fingerprint and geofence can be used to improve the process of recording the attendance of students.
+
+GPT 
+The aim of this research paper is to comprehensively investigate and evaluate the design, implementation, and effectiveness of a smart attendance system in modern educational and organizational contexts. The study seeks to address the challenges and opportunities associated with integrating technological advancements into attendance management, focusing on the development of an efficient, accurate, and user-friendly system. Through an in-depth analysis of various aspects such as system functionality, user identification, data integrity, security measures, and user experience, this research aims to provide insights into the practical implications and potential benefits of adopting a smart attendance system. By examining real-world scenarios, testing the system under diverse conditions, and considering scalability and network connectivity, the research paper aims to contribute valuable findings that can guide the adoption and optimization of smart attendance systems, enhancing attendance management practices in both educational and organizational settings.
+
+
+--> Methodology
+
+In this section, to implement the smart attendance mobile application an android approach is considered. In this system,fingerprint biometrics integrated in the smartphones for authentication,location tracking using geofence with GPS technology approaches is being implemented.The application uses geofence to locate the respectives students.  It uses the global positioning system(GPS) to define the geographical boundary that will trigger the attendance sheet when the device will enter that boundary.
+When entered the specify range, the fingerprints will need to be recorded to authenticate the students and mark his presence.
+
+-> Requirements
+An intensive literature review has been done in order to identify the requirements of the smart attendance mobile application. To ease the problem of the attendance marking; user registration, location tracking, attendance marking and reorting and management are the requirements to meet the demands. 
+
+o	Location Tracking (Geofence)
+Based on our research, we determined that GPS (Global Positioning system) is the technology to be used. All we did, is used the GPS functionality integrated in the mobile phones that will track its user within the radius of its respective class. The Geofence functionality have set a range that whenever the user is within that range, the attendance sheet will be display. To be able to record their attendance, the students needs to be present.
+
+o	Attendance Marking
+We determined that the marking system will be based on the predefined location. To mark the student attendance, once in the predefined location, the student will need to authenticate himself by scanning his fingerprints to record himself. After the authentication process, the attendance will be be recorded in an SQLite database. 
+
+o	Reporting and Management
+Attendance data for the students is stored in an SQLite database within the android studio platform. The data is organised and presented in a tabular format making it easily accessible for reporting and management purposes. Both students and lecturers can view the tables but won`t be able to edit it. 
+
+o	User Registration
+We use a form where each student can register themselves and add their data such course they are studying for. Fingerprints is used to register the students as it will be used on the functionality Location tracking where the student will have to authenticate themselves. Once the form filled, all data isecord in the SQLite database.
+
+
+
+-> Implementation
+
+
+Based on the literature review, we have determined that Android Studio, utilizing Java, XML, and SQLite, is the optimal platform to implement our system. The primary functionality of the application revolves around location tracking, which involves real-time GPS localization integration and Geofence technology. To achieve student detection upon entering specific classrooms, we have established fixed diameters. When students enter these predefined geographical coordinates, their GPS coordinates will be continuously monitored, enabling accurate detection. The database system is implemented using SQLite, as it can handle a large number of records efficiently and provides easy accessibility.
+
+Incorporating fingerprint scanning into the system was a strategic decision, and Android Studio's comprehensive toolset offered valuable advantages, enabling enhanced development possibilities. Figure 1 illustrates the flow of the application, showcasing the logical progression of its components and interactions.
+
+
+-> Testing 
+
+The mobile application has been tested to ensure its good functionality, reliability and accuracy. A set of test cases were built and run to evaluate the application`s performance under various scenarios. 
+  
+
+The testing process has verified its functionalities, accuracy and reliability across a series of scenarios. It has shown a robust performance and secure user interactions which makes its dependable solution for attendance management.
+
+
+

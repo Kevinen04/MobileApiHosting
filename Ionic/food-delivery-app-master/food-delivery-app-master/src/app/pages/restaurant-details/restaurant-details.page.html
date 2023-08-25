@@ -1,0 +1,73 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="primary" *ngIf="isCurrentUserRestaurantStaff">
+      <ion-button (click)="editOrSave()">
+        <ion-icon slot="icon-only" [name]="editMode ? 'checkmark-done-outline' : 'pencil-outline'"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{ restaurant.name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item lines="none">
+    <ion-thumbnail slot="start">
+      <img [alt]="restaurant.name" [src]="restaurant.logo" />
+    </ion-thumbnail>
+    <ion-label class="ion-text-wrap">{{ restaurant.description }}</ion-label>
+  </ion-item>
+  <div class="seperator">
+    <hr>
+  </div>
+  <ion-card-title class="ion-margin-top">
+    Menu
+  </ion-card-title>
+
+  <ng-container *ngIf="editMode">
+    <ion-button expand="block" fill="clear" (click)="addMenuItem()">
+      <ion-icon slot="icon-only" name="add-circle-outline"></ion-icon>
+    </ion-button>
+    <ion-list>
+      <ion-card *ngFor="let menuItem of form.controls; let i = index">
+        <ion-card-content [formGroup]="menuItem">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="7">
+                <ion-input placeholder="Name" formControlName="name"></ion-input>
+              </ion-col>
+              <ion-col size="5" class="ion-text-end">
+                <ion-input label="Rs." formControlName="price" type="number" placeholder="0"></ion-input>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="3">
+                <ion-avatar (click)="addMenuItemPicture(menuItem.value.id)">
+                  <img [src]="getAddedItemPicture(menuItem.value.id)" />
+                </ion-avatar>
+              </ion-col>
+              <ion-col size="7" class="ion-padding-start">
+                <ion-textarea formControlName="description" placeholder="Add a description for the menu item"></ion-textarea>
+              </ion-col>
+              <ion-col size="2">
+                <ion-button fill="clear" (click)="removeMenuItem(menuItem.value.id)">
+                  <ion-icon slot="icon-only" name="trash-outline" color="danger"></ion-icon>
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+  </ng-container>
+
+  <ion-list>
+    <app-menu-item
+      *ngFor="let menuItem of restaurant.menuItems"
+      [menuItem]="menuItem"
+      (addToCartEvent)="addToCart($event)"
+    ></app-menu-item>
+  </ion-list>
+</ion-content>

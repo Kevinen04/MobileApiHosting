@@ -1,0 +1,16 @@
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="restaurants">
+      <ion-icon name="restaurant-outline"></ion-icon>
+      Restaurants
+    </ion-tab-button>
+    <ion-tab-button tab="cart">
+      <ion-icon name="cart-outline"></ion-icon>
+      Cart<ion-badge *ngIf="itemsInCart > 0">{{ itemsInCart }}</ion-badge>
+    </ion-tab-button>
+    <ion-tab-button tab="orders">
+      <ion-icon name="receipt-outline"></ion-icon>
+      Orders
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

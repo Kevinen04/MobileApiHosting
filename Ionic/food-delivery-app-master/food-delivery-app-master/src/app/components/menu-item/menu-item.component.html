@@ -1,0 +1,25 @@
+<ion-card>
+  <ion-card-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="9">{{ menuItem.name }}</ion-col>
+        <ion-col size="3" class="ion-text-end">Rs. {{ menuItem.price }}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="3">
+          <ion-avatar>
+            <img [alt]="menuItem.name" [src]="menuItem.picture" />
+          </ion-avatar>
+        </ion-col>
+        <ion-col size="6" class="ion-padding-start">
+          {{ menuItem.description }}
+        </ion-col>
+        <ion-col size="3">
+          <ion-button fill="clear" (click)="addToCart(menuItem.id)">
+            <ion-icon slot="icon-only" name="bag-add-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>
+</ion-card>

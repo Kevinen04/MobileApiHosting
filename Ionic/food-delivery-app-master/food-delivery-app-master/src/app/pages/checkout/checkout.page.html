@@ -1,0 +1,64 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Checkout</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>You are creating an order from {{ restaurantName }}. Review your order below.</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let groupedItem of groupedCartItems">
+          <ion-avatar slot="start">
+            <ion-img [src]="groupedItem.menuItem.picture"></ion-img>
+          </ion-avatar>
+          <ion-label>{{ groupedItem.menuItem.name }}</ion-label>
+          <ion-label slot="end">
+            Rs. {{ groupedItem.menuItem.price }} x {{ groupedItem.quantity }}
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <form [formGroup]="form">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Select a method of delivery.</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-radio-group formControlName="delivery">
+          <ion-radio value="1">Pick up at the restaurant</ion-radio><br />
+          <ion-radio value="2">Deliver at the specified address</ion-radio><br />
+        </ion-radio-group>
+        <ion-item *ngIf="form.controls['delivery'].value === '2'">
+          <ion-input formControlName="deliveryAddress" placeholder="Delivery address"></ion-input>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+  </form>
+</ion-content>
+<ion-footer class="ion-text-center">
+  <ion-grid>
+    <ion-row>
+      <ion-col><ion-title class="ion-margin-bottom ion-text-warning">Total: Rs. {{total}}</ion-title></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div>
+          <ion-button class="ion-margin" fill="outline" shape="round" color="secondary" (click)="cancel()">
+            <ion-icon name="close-outline"></ion-icon> Cancel
+          </ion-button>
+          <ion-button class="ion-margin" shape="round" (click)="createOrder()">
+            <ion-icon name="bag-check-outline" slot="start"></ion-icon> Create
+          </ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

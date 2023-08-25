@@ -1,0 +1,23 @@
+The Hill cipher is a classical encryption algorithm that employs linear algebra to achieve
+secure communication.
+
+I. Explain the basic principles of the Hill cipher including the significance of modular
+arithmetic in the Hill cipher.[4 Marks]
+
+Hill cipher follows a polygraphic substitution cipher and has a symmetric encryption algorithm that operates on blocks of plaintext. It has matrix operations to achieve both encryption and decryption. 
+-The process in the Hill cipher depends on a square matrix called the key matrix.
+-The plaintext is divided into blocks which each contains a fixed number of characters.
+-The matrix is multiplied with the column vector which represents a plaintext block. It ensures the value of the ciphertext values remain within a specific range.
+-The results is then transformed back into characters to form a ciphertext.
+The arithmetic in the Hill cipher lies in maintaining the encryption and decryption operations within a defined range.
+
+
+II. Describe the encryption process using the Hill cipher.[3 Marks]
+
+The encrption process using the Hill Cipher, it uses block of n letters which is multiplied by an invertible n * n matrix, against modulus 26. To decrypt the message, each block is multiplied by the inverse of the matrix used for encryption.
+
+
+
+III. Explain the concept of cryptanalysis and its relevance to the Hill cipher.
+
+Cryptanalysis is the study of ciphers. cryptanalysis helps to determine the cipher`s strength and how to breal the cipher. It involves different kind of techniques and methodologies whicg aims at deciphering encrypted messages without knowledge of the encryption key or algorithm. The relevance of the cryptanalysis to the Hill Cipher lies in the ability to assess the security of the cipher and discover vulnerablilities that my be decrypt ciphertext without the intended key.

@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>restaurantDetails</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item line="none">
+    <ion-thumbnail slot="start">
+      <img [alt]="restaurant.name" [src]="restaurant.logo" />
+    </ion-thumbnail>
+<ion-label class="ion-text-wrap">{{restaurant.description}}</ion-label>
+  </ion-item>
+  <div class="seperator">
+    <hr>
+  </div>
+
+  <ion-card-title class="ion-margin-top">
+    Menu
+  </ion-card-title>
+<ion-list>
+ <app-menu-item
+ *ngFor="let menuItem of restaurant.menuItems"
+ [menuItem]="menuItem"
+ (addToCartEvent)="addToCart($event)"
+ ></app-menu-item>
+</ion-list>
+</ion-content>
